@@ -23,9 +23,10 @@ public class DynamicUiExampleActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        String[] labels = new String[]{"First Name","Last Name","Username"};
+        String[] labels = new String[] { "First Name","Last Name","Username" };
         
-        String[] countries = new String[]{"France","Netherlands","Germany"};
+        String[] countries = new String[]{ "France", "Germany", "Jamaica", "Netherlands", 
+        		"United Kingdom", "U.S.A." };
         
         ScrollView scroller = new ScrollView(this);
         TableLayout table = new TableLayout(this);
@@ -56,14 +57,14 @@ public class DynamicUiExampleActivity extends Activity {
         
         row = new TableRow(this);
         tv = new TextView(this);
-        tv.setText("Gender");
+        tv.setText(getResources().getString(R.string.gender));
         row.addView(tv);
         
         radio = new RadioButton(this);
-        radio.setText("Female");
+        radio.setText(getResources().getString(R.string.female));
         group.addView(radio);
         radio = new RadioButton(this);
-        radio.setText("Male");
+        radio.setText(getResources().getString(R.string.male));
         group.addView(radio);
         group.setOrientation(0);
         row.addView(group);
@@ -71,8 +72,9 @@ public class DynamicUiExampleActivity extends Activity {
         
         row = new TableRow(this);
         tv = new TextView(this);
-        tv.setText("Country");
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, countries);
+        tv.setText(getResources().getString(R.string.country));
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, 
+        		android.R.layout.simple_spinner_item, countries);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         row.addView(tv);
@@ -81,10 +83,10 @@ public class DynamicUiExampleActivity extends Activity {
         
         row = new TableRow(this);
         button = new Button(this);
-        button.setText("Clear");
+        button.setText(getResources().getString(R.string.clear));
         row.addView(button);
         button = new Button(this);
-        button.setText("Submit");
+        button.setText(getResources().getString(R.string.submit));
         button.setOnClickListener(new OnClickListener() {
 			
 			@Override
